@@ -21,8 +21,8 @@
 #include <DbgTraceOut.h>
 #include <DbgPrintConsole.h>
 #include <DbgTraceLevel.h>
-#include <ProductDebug.h>
 #include <RamUtils.h>
+#include <AppDebug.h>
 
 SerialCommand* sCmd = 0;
 
