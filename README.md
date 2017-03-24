@@ -1,19 +1,10 @@
-# wiring-iot-skeleton
-Wiring / Arduino based IoT Skeleton Embedded Application, powered by [PlatformIO](http://platformio.org "Cross-platform build system")
+# wiring-skeleton
+Wiring / Arduino based Skeleton Embedded Application, powered by [PlatformIO](http://platformio.org "Cross-platform build system")
 
-The project has initially been created for and tested on an [Adafruit ESP8266 Huzzah](https://www.adafruit.com/product/2471 "Adafruit HUZZAH ESP8266 Breakout") controller module. Now it has been migrated to [NodeMCU](http://nodemcu.com/index_en.html "NodeMCU Connect Things EASY") (also ESP8266 based).
+The project has initially been created for and tested on an Arduino Mega 2560 controller module.
 
 ## Purpose
-This project builds up an Arduino Framework based IoT application skeleton and it comprises of several components helping with debugging and integrating embedded applications on [Arduino](http://arduino.cc) and [ESP8266 ESP-12](https://en.wikipedia.org/wiki/ESP8266) based contoller modules.
-
-The command line interface provides the following functionality:  
-
-* configure the WiFi access point (SSID & Password) and show the WiFi connection status
-* [ThingSpeak](http://thingspeak.com) features:
-  * setup a  channel to be written to later on (ChID & API Key)
-  * set ThingSpeak channel data fields (1..8) and write the data to the channel
-
-(Planned: MQTT features)
+This project builds up an Arduino Framework based application skeleton and it comprises of several components helping with debugging and integrating embedded applications on [Arduino](http://arduino.cc) based contoller modules.
 
 This skeleton application can help you to build up your own Arduino Framework based applications with focus on IoT. 
 
@@ -22,18 +13,17 @@ It demonstrates the usage of the following copmonents:
 * [Timer](https://github.com/dniklaus/arduino-utils-timer)
 * [Debug-Cli](https://github.com/ERNICommunity/debug-cli)
 * [Dbg-Trace](https://github.com/ERNICommunity/dbg-trace)
-* [ThingSpeak](https://github.com/mathworks/thingspeak-particle)
 
 ## How to build for Eclipse CDT
   1. Create a directory where your Eclipse Workspace will be stored and where this project shall be cloned into. E.g. `C:\git\pio-prj`
-  2. Clone this repository recursively into the folder you created before, `git clone --recursive git@github.com:dniklaus/wiring-iot-skeleton.git`
-  3. Open a command shell in the just cloned project folder, i.e in `C:\git\pio-prj\wiring-iot-skeleton`
-  4. Run the command `pio init -b nodemcuv2 --ide eclipse`
+  2. Clone this repository recursively into the folder you created before, `git clone --recursive git@github.com:dniklaus/wiring-skeleton.git`
+  3. Open a command shell in the just cloned project folder, i.e in `C:\git\pio-prj\wiring-skeleton`
+  4. Run the command `pio init -b megaatmega2560 --ide eclipse`
   5. Run the command `pio run`
 
 ## Open project in Eclipse CDT
   6. Open Eclipse CDT, choose the folder you created before as workspace, i.e `C:\git\pio-prj`
-  7. Import the project with File->Import->General->Existing Projects into Workspace, choose the `wiring-iot-skeleton` (i.e `C:\git\pio-prj\wiring-iot-skeleton`)
+  7. Import the project with File->Import->General->Existing Projects into Workspace, choose the `wiring-skeleton` (i.e `C:\git\pio-prj\wiring-skeleton`)
 
 ## Connect Terminal Emulation
 In order to test and run the CLI commands, a terminal emulation program shall be used. The one giving you the best experience will be the [HTerm](http://www.der-hammer.info/terminal/). 
@@ -53,26 +43,9 @@ Load the _hterm-com18.cfg_ file to configure HTerm properly. Alter the COM18 acc
              get              Show the current trace level
              set <level>      Set a particular trace level
              list             Show all available trace levels (and the currenntly selected)
-       wifi                   WiFi debug commands
-         mac                  show WiFi MAC address
-         nets
-         stat                 Show WiFi status
-         dis                  Disconnect WiFi
-         con <SSID> <Pass>    Connect WiFi
-       mqtt
-         con
-         dis
-       thgspk                 ThingSpeak debug commands
-         chid <channelId>     Set ThingSpeak Channel ID.
-         key <APIKey>         Set ThingSpeak API key.
-         set <value> [field]  Set ThingSpeak field value (field: 1..8, default: 1)
-         wr                   ThingSpeak write fields.
 
 #### Example commands
 * `dbg tr heap lvl set debug`
-* `dbg thgspk set 23.6 1`
-* `dbg thgspk set 25.3 2`
-* `dbg thgspk wr`
 
 
 ### Trace Port
@@ -87,7 +60,6 @@ This chapter lists all the libraries this project is using.
 |ID|Name|URL|Description|
 |:--|:-------|:----------------|:-----------------------|
 |173|SerialCommand|https://github.com/kroimon/Arduino-SerialCommand|A Wiring/Arduino library to tokenize and parse commands received over a serial port.|
-|550|ThingSpeak|https://github.com/mathworks/thingspeak-particle|"MathWorks": ThingSpeak Communication Library for Arduino & ESP8266|
 
 
 ### Homebrew Libraries
