@@ -1,18 +1,17 @@
 /*
- * i2c-slave-due.cpp
+ * wiring-skeleton.cpp
  *
  *  Created on: 15.03.2017
  *      Author: niklausd
  */
 
 #include <Arduino.h>
-#include <Wire.h>
-#include <string.h>
+
 // PlatformIO libraries
 #include <SerialCommand.h>  // pio lib install 173, lib details see https://github.com/kroimon/Arduino-SerialCommand
+#include <Timer.h>          // pio lib install 1699, lib details see https://github.com/dniklaus/wiring-timer
 
 // private libraries
-#include <Timer.h>
 #include <DbgCliNode.h>
 #include <DbgCliTopic.h>
 #include <DbgCliCommand.h>
@@ -21,14 +20,22 @@
 #include <DbgTraceOut.h>
 #include <DbgPrintConsole.h>
 #include <DbgTraceLevel.h>
-#include <RamUtils.h>
 #include <AppDebug.h>
+#include <ProductDebug.h>
+#include <RamUtils.h>
+
+#ifndef BUILTIN_LED
+#define BUILTIN_LED 13
+#endif
 
 SerialCommand* sCmd = 0;
 
 void setup()
 {
-  setupDebugEnv();
+  pinMode(BUILTIN_LED, OUTPUT);
+  digitalWrite(BUILTIN_LED, 0);
+
+  setupProdDebugEnv();
 }
 
 void loop()
