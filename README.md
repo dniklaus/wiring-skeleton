@@ -1,12 +1,19 @@
 # wiring-skeleton
-Wiring / Arduino based Skeleton Embedded Application, powered by [PlatformIO](http://platformio.org "Cross-platform build system")
+Arduino Framework based Skeleton Embedded Application, powered by [PlatformIO](http://platformio.org "Cross-platform build system").
 
-The project has initially been created for and tested on an Arduino Mega 2560 controller module.
+The project is suitable for the following controller boards:
+
+* Arduino Uno
+* Arduino Mega2560
+* Arduino Due
+* Adafruit Feather M0
+* NodeMcu
+* Adafruit Huzzah ESP8266
 
 ## Purpose
-This project builds up an Arduino Framework based application skeleton and it comprises of several components helping with debugging and integrating embedded applications on [Arduino](http://arduino.cc) based contoller modules.
+This project builds up an Arduino Framework based application skeleton and it comprises of several components helping with debugging and integrating embedded applications on several different contoller modules.
 
-This skeleton application can help you to build up your own Arduino Framework based applications. 
+This skeleton application can help you to build up your own Arduino Framework based applications while working with [PlatformIO](http://platformio.org "Cross-platform build system").
 
 This project integrates the following **components**:
 
@@ -31,18 +38,17 @@ The following components are in focus:
 [PlatformIO](http://platformio.org "Cross-platform build system") is the ideal foundation when developing IoT devices. It supports cross-platform development for many different controller boards widely used in the maker field and also for industrial applications.
 
 ### Installation
-#### Python 2.7
+#### Python 3.7
 
 **Windows**
 
-* download Python 2.7.x from: https://www.python.org/downloads/
-* install for all users
-* select destinationdirectory (keep default): C:\Python27\
-* add python.exe to path
+* download Python 3.7.x or later from: https://www.python.org/downloads/
+* select destination directory: keep default
+* make sure python.exe is added to path
 
 **Linux**
 
-Install Python 2.7 using your package manager.
+Install Python 3.7 or later using your package manager.
 
 #### PlatformIO
 Install PlatformIO using the Python Package Manager
@@ -51,7 +57,7 @@ Install PlatformIO using the Python Package Manager
 * in a cmd shell enter: `pip install -U platformio`
 * upgrade pip, in the cmd shell enter: `python -m pip install --upgrade pip`
 * upgrade PlatformIO, in the cmd shell enter: `pio upgrade`
- 
+
 
 ## How to build for Eclipse CDT
   1. Create a directory where your Eclipse Workspace will be stored and where this project shall be cloned into. E.g. `C:\git\pio-prj`
@@ -85,9 +91,18 @@ Load the _hterm-com10.cfg_ file to configure HTerm properly. Alter the COM10 acc
              get              Show the current trace level
              set <level>      Set a particular trace level
              list             Show all available trace levels (and the currenntly selected)
+     led
+       out
+         ...
+       lvl
+         ...    
+       led                    Built in LED access
+         set                  Set LED state (Usage: dbg led set [blink|on|off])
 
 #### Example commands
 * `dbg tr heap lvl set debug`
+* `dbg led set on`
+* `dbg led set blink`
 
 
 ### Trace Port
@@ -95,6 +110,8 @@ Load the _hterm-com10.cfg_ file to configure HTerm properly. Alter the COM10 acc
 |Trace Port|default level|functionality|
 |----------|-------------|:------------|
 |heap|info|if set to debug level: automatically print free heap memory [bytes], every 10 seconds|
+|led |notice|used for _dbg led_ CLI commands print out (which level is defined as _alert_)|
+
 
 ## Library Usage
 This chapter lists all the libraries this project is using.
@@ -114,6 +131,6 @@ This chapter lists all the libraries this project is using.
 
 |Name|URL|Description|
 |:------|:---------------------|:-------------------------------|
-|RamUtils|https://github.com/dniklaus/arduino-utils-mem|Arduino Memory Utilities|
+|RamUtils|https://github.com/dniklaus/arduino-utils-mem|Arduino Memory Utilities, provides free heap information|
 |App-Debug  |https://github.com/dniklaus/wiring-app-debug.git|Wiring application debug setup component                                                                                         |
 
