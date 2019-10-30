@@ -44,5 +44,5 @@ void loop()
   {
     sCmd->readSerial();     // process serial commands
   }
-  yield();                  // process Timers
+  scheduleTimers();         // process Timers
 }
