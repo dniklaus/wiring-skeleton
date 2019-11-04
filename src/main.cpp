@@ -12,34 +12,17 @@
 #include <Timer.h>          // pio lib install 1699, lib details see https://github.com/dniklaus/wiring-timer
 
 // private libraries
-#include <DbgCliNode.h>
-#include <DbgCliTopic.h>
-#include <DbgCliCommand.h>
-#include <DbgTracePort.h>
-#include <DbgTraceContext.h>
-#include <DbgTraceOut.h>
-#include <DbgPrintConsole.h>
-#include <DbgTraceLevel.h>
-#include <AppDebug.h>
 #include <ProductDebug.h>
-#include <RamUtils.h>
+
+// local components (lib folder)
 #include <Indicator.h>
 #include <MyBuiltinLedIndicatorAdapter.h>
 
-#ifndef LED_BUILTIN
-#define LED_BUILTIN 13
-#endif
 
 SerialCommand* sCmd = 0;
 
-
-//-----------------------------------------------------------------------------
 // indicator implementation for built in LED
-//-----------------------------------------------------------------------------
 Indicator* led  = 0;
-
-
-//-----------------------------------------------------------------------------
 
 void setup()
 {
