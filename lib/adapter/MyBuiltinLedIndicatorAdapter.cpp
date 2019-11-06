@@ -1,5 +1,5 @@
 /*
- * MyIndicatorAdapter.cpp
+ * MyBuiltinLedIndicatorAdapter.cpp
  *
  *  Created on: 04.11.2019
  *      Author: nid
