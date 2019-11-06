@@ -1,5 +1,5 @@
 /*
- * MyIndicatorAdapter.h
+ * MyBuiltinLedIndicatorAdapter.h
  *
  *  Created on: 04.11.2019
  *      Author: nid
