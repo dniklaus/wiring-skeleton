@@ -20,7 +20,7 @@
 
 DbgCliCmd_IndSet::DbgCliCmd_IndSet(Indicator& indicator)
 : DbgCli_Command(indicator.dbgCliTopic(), "set", "Set indicator state")
-, m_trPort(new DbgTrace_Port(indicator.dbgCliTopic()->getNodeName(), DbgTrace_Level::notice))
+, m_trPort(new DbgTrace_Port(this->getParentNode()->getNodeName(), DbgTrace_Level::notice))
 , m_indicator(indicator)
 { }
 
@@ -33,7 +33,8 @@ DbgCliCmd_IndSet::~DbgCliCmd_IndSet()
 void DbgCliCmd_IndSet::printUsage()
 {
   TR_PRINTF(m_trPort, DbgTrace_Level::alert, "%s", getHelpText());
-  TR_PRINTF(m_trPort, DbgTrace_Level::alert, "Usage: dbg %s %s [blink|on|off].", m_indicator.dbgCliTopic()->getNodeName(), this->getNodeName());
+  TR_PRINTF(m_trPort, DbgTrace_Level::alert, "Usage: %s %s %s [blink|on|off].", 
+            DbgCli_Node::RootNode()->getNodeName(), this->getParentNode()->getNodeName(),this->getNodeName());
 }
 
 void DbgCliCmd_IndSet::printReport()
