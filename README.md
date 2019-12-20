@@ -9,15 +9,15 @@ The project is able to run and has been tested on the following controller board
 * [Arduino Mega 2560](https://store.arduino.cc/arduino-mega-2560-rev3)
 * [Arduino Due](https://store.arduino.cc/arduino-due)
 * [Adafruit Feather M0](https://www.adafruit.com/?q=Adafruit%20Feather%20M0)
-* Wemos D1 Mini
-* NodeMcu
-* Adafruit Huzzah ESP8266
-* DoIt ESP32 DEVKIT V1
+* [Wemos D1 Mini](https://de.aliexpress.com/item/32764312651.html)
+* [NodeMcu](https://de.aliexpress.com/item/32733851178.html)
+* [Adafruit Huzzah ESP8266](https://learn.adafruit.com/adafruit-huzzah-esp8266-breakout)
+* [DoIt ESP32 DEVKIT V1](https://de.aliexpress.com/item/32807028338.html)
 
 It could be easily ported to many other controller boards, as long as the Arduino Framework is used with PlatformIO and the board is listed in the [PlatformIO boards registry](https://platformio.org/boards).
 
 ## Purpose
-This skeleton application demonstrates how to integrate libraries provided by the PlatformIO ecosystem and also how to use your own libraries and can help you to build up your own Arduino Framework based applications with a bare metal approach (i.e. without using an operation system). 
+This skeleton application demonstrates how to integrate libraries provided by the PlatformIO ecosystem and also how to use your own libraries and can help you to build up your own Arduino Framework based applications with a bare metal approach (i.e. without using an operating system). 
 
 It comprises of several components helping with debugging and integrating embedded applications on several different controller modules.
 
@@ -178,14 +178,30 @@ This chapter lists all the libraries this project is using.
 
 ## Create a new project based on this skeleton application
 
+To use *wiring-skeleton* as a template for a new project, it has to be forked locally.
+
 1. On **GitHub:** create new repository, i.e. *my-test*
 2. Within a **Git Bash:**
-
-
-```bash
-  git clone --bare git@github.com:ERNICommunity/wiring-skeleton.git
-  cd ./wiring-skeleton.git
-  git remote rm origin
-  git remote add origin git@github.com:your-name/my-test.git
-  git push --mirror
-```
+   1. Clone the *wiring-skeleton* as a **bare repository**:
+   ```bash
+      git clone --bare git@github.com:ERNICommunity/wiring-skeleton.git
+   ```
+   2. Replace origin with the one for your new project (i.e. project *my-test*, with *your-name* as GitHub user name):
+   ```bash
+      cd ./wiring-skeleton.git
+      git remote rm origin
+      git remote add origin git@github.com:your-name/my-test.git
+   ```
+   3. Push the bare repo as a **mirror** to your new origin:
+   ```bash
+      git push --mirror
+   ```
+   4. Clone the new project (i.e. project *my-test*, with *your-name* as GitHub user name):
+   ```bash
+      cd ..
+      git clone git@github.com:your-name/my-test.git
+   ```
+   5. Remove the bare *wiring-skeleton* template project:
+   ```bash
+      rm -rf ./wiring-skeleton.git
+   ```
