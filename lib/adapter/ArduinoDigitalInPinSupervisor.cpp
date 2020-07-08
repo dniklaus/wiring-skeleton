@@ -16,8 +16,7 @@ ArduinoDigitalInPinSupervisor::ArduinoDigitalInPinSupervisor(int arduinoPin)
 {
   if (0 <= m_arduinoPin)
   {
-    pinMode(m_arduinoPin, INPUT);
-    digitalWrite(m_arduinoPin, isButtonNegativeLogic() ? HIGH : LOW); // pull
+    pinMode(m_arduinoPin, isButtonNegativeLogic() ? INPUT_PULLUP : INPUT_PULLDOWN);
   }
 }
 
