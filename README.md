@@ -94,6 +94,7 @@ In the menu click on *File > Open Folder...* and choose the project folder that 
      This prepares the project to be edited using Eclipse CDT.
   5. Run the command `pio run`, this starts the project build 
 
+
 #### Open project in Eclipse CDT
 
   1. Open Eclipse CDT, choose the folder you created before as **Eclipse workspace**, i.e `C:\git\pio-prj`
@@ -112,6 +113,7 @@ In the menu click on *File > Open Folder...* and choose the project folder that 
 3. In a cmd shell type `pio run -t upload`
 
 ### Connect Terminal Emulation
+
 
 In order to test and run the CLI commands, a terminal emulation program shall be used. The one giving you the best experience will be the [HTerm](http://www.der-hammer.info/terminal/). 
 
@@ -205,3 +207,4 @@ To use *wiring-skeleton* as a template for a new project, it has to be forked lo
    ```bash
       rm -rf ./wiring-skeleton.git
    ```
+
