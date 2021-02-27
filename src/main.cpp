@@ -9,7 +9,8 @@
 
 // PlatformIO libraries
 #include <SerialCommand.h>  // pio lib install 173, lib details see https://github.com/kroimon/Arduino-SerialCommand
-#include <Timer.h>          // pio lib install 1699, lib details see https://github.com/dniklaus/wiring-timer
+#include <SpinTimer.h>      // pio lib install 11599, lib details see https://github.com/dniklaus/spin-timer
+
 
 // private libraries
 #include <ProductDebug.h>
@@ -17,7 +18,11 @@
 // local components (lib folder)
 #include <Indicator.h>
 #include <MyBuiltinLedIndicatorAdapter.h>
-
+#include <Button.h>
+#include <DetectorStrategy.h>
+#include <ButtonEdgeDetector.h>
+#include <MyButtonAdapter.h>
+#include <ArduinoDigitalInPinSupervisor.h>
 
 SerialCommand* sCmd = 0;
 
@@ -32,6 +37,10 @@ void setup()
   // indicator LED
   led = new Indicator("led", "Built in LED.");
   led->assignAdapter(new MyBuiltinLedIndicatorAdapter());
+
+#ifdef USER_BTN
+  new Button(new ArduinoDigitalInPinSupervisor(USER_BTN), new ButtonEdgeDetector(), new MyButtonAdapter(led));
+#endif
 }
 
 void loop()
