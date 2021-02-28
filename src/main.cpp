@@ -45,6 +45,7 @@ void setup()
 
 void loop()
 {
+  // file deepcode ignore CppSameEvalBinaryExpressionfalse: sCmd gets instantiated by setupProdDebugEnv()
   if (0 != sCmd)
   {
     sCmd->readSerial();     // process serial commands
