@@ -20,7 +20,7 @@
 #include <Indicator.h>
 
 DbgCliCmd_IndPulse::DbgCliCmd_IndPulse(Indicator& indicator)
-: DbgCli_Command(indicator.dbgCliTopic(), "pulse", "Send a pulse on indicator output")
+: DbgCli_Command(DbgCli_Node::RootNode()->getChildNode(indicator.name()), "pulse", "Send a pulse on indicator output")
 , m_trPort(new DbgTrace_Port(this->getParentNode()->getNodeName(), DbgTrace_Level::notice))
 , m_indicator(indicator)
 { }

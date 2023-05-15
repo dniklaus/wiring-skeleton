@@ -19,7 +19,7 @@
 #include "Indicator.h"
 
 DbgCliCmd_IndSet::DbgCliCmd_IndSet(Indicator& indicator)
-: DbgCli_Command(indicator.dbgCliTopic(), "set", "Set indicator state")
+: DbgCli_Command(DbgCli_Node::RootNode()->getChildNode(indicator.name()), "set", "Set indicator state")
 , m_trPort(new DbgTrace_Port(this->getParentNode()->getNodeName(), DbgTrace_Level::notice))
 , m_indicator(indicator)
 { }
