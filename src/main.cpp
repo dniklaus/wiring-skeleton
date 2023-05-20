@@ -14,10 +14,10 @@
 
 // private libraries
 #include <ProductDebug.h>
-
-// local components (lib folder)
 #include <Indicator.h>
 #include <IndicatorFactory.h>
+
+// local components (lib folder)
 #include <MyBuiltinLedIndicatorAdapter.h>
 #include <Button.h>
 #include <DetectorStrategy.h>
