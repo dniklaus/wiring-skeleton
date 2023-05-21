@@ -28,8 +28,8 @@ void MyBuiltinLedIndicatorAdapter::notifyStatusChange(bool status)
 
 void MyBuiltinLedIndicatorAdapter::setLed(bool isOn)
 {
-#ifdef ESP8266
-  // the built-in LED logic on ESP8266 module is inverted!
+#if defined(ESP8266) || defined(BOARD_LOLIN_D32)
+  // the built-in LED logic on ESP8266 modules and on LOLIN D2 boards is inverted!
   isOn = !isOn;
 #endif
   digitalWrite(LED_BUILTIN, isOn);
