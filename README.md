@@ -13,6 +13,7 @@ The project is able to run and has been tested on the following controller board
 * [NodeMcu](https://de.aliexpress.com/item/32733851178.html)
 * [Adafruit Huzzah ESP8266](https://learn.adafruit.com/adafruit-huzzah-esp8266-breakout)
 * [DoIt ESP32 DEVKIT V1](https://de.aliexpress.com/item/32807028338.html)
+* [LOLIN D32](https://www.wemos.cc/en/latest/d32/d32.html)
 
 It could be easily ported to many other controller boards, as long as the Arduino Framework is used with PlatformIO and the board is listed in the [PlatformIO boards registry](https://platformio.org/boards).
 
