@@ -14,9 +14,10 @@
 
 // private libraries
 #include <ProductDebug.h>
+#include <Indicator.h>
+#include <IndicatorFactory.h>
 
 // local components (lib folder)
-#include <Indicator.h>
 #include <MyBuiltinLedIndicatorAdapter.h>
 #include <Button.h>
 #include <DetectorStrategy.h>
@@ -35,7 +36,7 @@ void setup()
   setupProdDebugEnv();
 
   // indicator LED
-  led = new Indicator("led", "Built in LED.");
+  led = IndicatorFactory::createIndicator("led", "Built in LED.");
   led->assignAdapter(new MyBuiltinLedIndicatorAdapter());
 
 #ifdef USER_BTN
