@@ -8,6 +8,7 @@
 #ifndef APP_H_
 #define APP_H_
 
+class SerialCommand;
 class Indicator;
 
 class App
@@ -21,7 +22,11 @@ public:
   void loop();
 
 private:
+  SerialCommand* m_sCmd;
   Indicator* m_led;
+
+private:
+  static const char s_termChar;
 };
 
 #endif /* APP_H_ */

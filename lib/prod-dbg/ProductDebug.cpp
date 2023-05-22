@@ -6,12 +6,16 @@
  */
 
 #include <Arduino.h>
+#include <SerialCommand.h>
 #include <AppDebug.h>
 #include "ProductDebug.h"
 
-void setupProdDebugEnv()
+class SerialCommand;
+
+void ProductDebug::setupProdDebugEnv(SerialCommand* sCmd)
 {
-  setupDebugEnv();
+  AppDebug appDebug(sCmd);
+  appDebug.setupDebugEnv();
 
   Serial.println();
   Serial.println("---------------------------------------------");
