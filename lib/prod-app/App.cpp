@@ -57,5 +57,19 @@ void App::loop()
   {
     m_sCmd->readSerial();     // process serial commands
   }
-  scheduleTimers();
+  // scheduleTimers();
+
+  delayAndSchedule(1000);
+  printBatteryVoltage();
 }
+
+void App::printBatteryVoltage()
+{
+  uint16_t rawBat = analogRead(35);
+  float vBat = rawBat / 4096.0 * (2.225 * 3.3);
+  // uint16_t rawBat = analogRead(34);
+  // float vBat = rawBat / 4096.0 * (3.3);
+  char printString[100];
+  sprintf(printString, "Vbat: %2.3f [V] (raw: %u)", vBat, rawBat);
+  Serial.println(printString);
+} 
