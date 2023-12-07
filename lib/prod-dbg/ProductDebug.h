@@ -8,6 +8,11 @@
 #ifndef LIB_PROD_DBG_PRODUCTDEBUG_H_
 #define LIB_PROD_DBG_PRODUCTDEBUG_H_
 
-void setupProdDebugEnv();
+class SerialCommand;
+class ProductDebug
+{
+public:
+  static void setupProdDebugEnv(SerialCommand* sCmd);
+};
 
 #endif /* LIB_PROD_DBG_PRODUCTDEBUG_H_ */
