@@ -21,8 +21,6 @@ public:
 
   void loop();
 
-  void printBatteryVoltage();
-
 private:
   SerialCommand* m_sCmd;
   Indicator* m_led;
