@@ -36,3 +36,4 @@
 /.pio
 /.vscode
 /.idea
+compile_commands.json
